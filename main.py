@@ -106,7 +106,7 @@ def main():
     app.add_handler(CommandHandler("resetid", resetid))
 
     # Cek artikel baru setiap 60 detik dengan JobQueue
-    app.job_queue.run_repeating(check_new_article, interval=10, first=5)
+    app.job_queue.run_repeating(check_new_article, interval=30, first=5)
 
     print("Bot berjalan...")
     app.run_polling()
