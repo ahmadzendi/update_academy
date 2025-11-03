@@ -72,7 +72,7 @@ async def check_new_article(context: ContextTypes.DEFAULT_TYPE):
 
         judul = artikel.get('post_title', 'Judul tidak ditemukan')
         link = artikel.get('permalink', 'Link tidak ditemukan')
-        tanggal_sekarang = datetime.now().strftime('%d/%m/%Y %H:%M:%S WIB')
+        tanggal_sekarang = get_wib_time()
         pesan = f"""Indodax Academy News Update:
 
 {judul}
