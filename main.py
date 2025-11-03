@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
@@ -10,6 +10,9 @@ CHAT_ID = os.getenv("CHAT_ID")
 API_URL = "https://indodax.com/academy/wp-json/api/v1/latest-article?lang=id&category=semua&label_category="
 LAST_ID_FILE = "last_id.txt"
 FILTER_KEY_FILE = "filter_key.json"
+
+def get_wib_time():
+    return (datetime.utcnow() + timedelta(hours=7)).strftime("%Y-%m-%d %H:%M:%S")
 
 def get_last_id():
     try:
