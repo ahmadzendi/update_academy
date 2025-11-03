@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime
-import pytz
+from zoneinfo import ZoneInfo
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
@@ -13,8 +13,7 @@ LAST_ID_FILE = "last_id.txt"
 FILTER_KEY_FILE = "filter_key.json"
 
 def get_wib_time():
-    wib = pytz.timezone('Asia/Jakarta')
-    return datetime.now(wib).strftime('%d/%m/%Y %H:%M:%S WIB')
+    return datetime.now(ZoneInfo("Asia/Jakarta")).strftime('%d/%m/%Y %H:%M:%S WIB')
 
 def get_last_id():
     try:
