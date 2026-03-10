@@ -31,7 +31,7 @@ def get_filter_keys():
         with open(FILTER_KEY_FILE, "r") as f:
             return set(json.load(f))
     # Default filter jika file belum ada
-    default = {"listing", "token"}
+    default = {"listing", "token", "baru", "hadir", "segera", "masuk"}
     set_filter_keys(default)
     return default
 
